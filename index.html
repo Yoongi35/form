@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fórmula de Stirling</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilos/style.css">
+</head>
+<body>
+    <h1>Fórmula de Stirling</h1>
+    <p>La fórmula de Stirling es una aproximación utilizada para estimar el valor de n! (factorial de n), donde n es un número natural grande.</p>
+    <p>Se expresa como:</p>
+    <img src="img/ej0.png" alt="">
+
+    <p>Ejemplo:50</p>
+    <img src="img/ej1.png" alt="">
+
+    <p>Su factorial</p>
+    <img src="img/ej.png" alt="">
+
+    <p>Resultado con la formula</p>
+    <img src="img/fr.png" alt="">
+
+    <p>Donde:</p>
+    <ul>
+        <li>n! es el factorial de n.</li>
+        <li>π es la constante pi (aproximadamente 3.14159).</li>
+        <li>e es la constante de Euler (aproximadamente 2.71828).</li>
+    </ul>
+        
+    
+    <label for="n">Ingresa el valor de n:</label>
+    <input type="number" id="n" min="1" value="20">
+    <button onclick="calcularStirling()">Calcular</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularStirling() {
+    const n = document.getElementById("n").value;
+    const aproximacion = stirlingApproximation(n);
+
+    const resultadoElement = document.getElementById("resultado");
+    resultadoElement.textContent = `La aproximación de Stirling para n = ${n} es: ${aproximacion}`;
+}
+
+function stirlingApproximation(n) {
+    const sqrtTwoPiN = Math.sqrt(2 * Math.PI * n);
+    const nOverE = Math.pow(n / Math.E, n);
+    return sqrtTwoPiN * nOverE;
+}
+    </script>
+</body>
+</html>
